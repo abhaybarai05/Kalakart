@@ -2,8 +2,8 @@
 
 A fully functional, responsive e-commerce website prototype showcasing traditional Indian arts and local handicrafts. Built with pure HTML, CSS, and JavaScript.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)](https://abhaybarai05.github.io/Kalakart)
-[![GitHub](https://img.shields.io/badge/github-abhaybarai05-blue.svg)](https://github.com/abhaybarai05/Kalakart)
+[![Live Demo](https://img.shields.io/badge/demo-live-green.svg)]( https://abhaybarai05.github.io/Kalakart/)
+[![GitHub](https://img.shields.io/badge/github-abhaybarai05-blue.svg)]( https://abhaybarai05.github.io/Kalakart/)
 
 ---
 
@@ -11,7 +11,7 @@ A fully functional, responsive e-commerce website prototype showcasing tradition
 
 KalaKart is a beautiful e-commerce platform designed to connect traditional Indian artisans with global customers. The platform celebrates Indian craftsmanship while providing a modern, user-friendly shopping experience.
 
-**Live Demo:** [https://abhaybarai05.github.io/Kalakart](https://abhaybarai05.github.io/Kalakart)
+**Live Demo:** [https://abhaybarai05.github.io/Kalakart]( https://abhaybarai05.github.io/Kalakart/)
 
 ---
 
@@ -43,7 +43,7 @@ KalaKart is a beautiful e-commerce platform designed to connect traditional Indi
 
 ## 🚀 Live Demo
 
-**Visit:** [https://abhaybarai05.github.io/Kalakart](https://abhaybarai05.github.io/Kalakart)
+**Visit:** [https://abhaybarai05.github.io/Kalakart]( https://abhaybarai05.github.io/Kalakart/)
 
 ### Key Features Showcase:
 - Browse 30+ authentic handicraft products
@@ -106,7 +106,7 @@ That's it! No build process, no dependencies, no installation required.
 ## 💡 Usage
 
 ### Browsing Products
-1. Visit the [live website](https://abhaybarai05.github.io/Kalakart)
+1. Visit the [live website]( https://abhaybarai05.github.io/Kalakart/)
 2. Scroll through 30+ featured products
 3. Use category navigation or search bar
 4. Apply filters to narrow results
@@ -272,7 +272,7 @@ This project is open source and available under the MIT License.
 **Abhay Barai**
 - GitHub: [@abhaybarai05](https://github.com/abhaybarai05)
 - Repository: [Kalakart](https://github.com/abhaybarai05/Kalakart)
-- Live Demo: [abhaybarai05.github.io/Kalakart](https://abhaybarai05.github.io/Kalakart)
+- Live Demo: [abhaybarai05.github.io/Kalakart]( https://abhaybarai05.github.io/Kalakart/)
 
 ---
 
@@ -348,7 +348,7 @@ If you like this project:
 
 ## 🔗 Quick Links
 
-- 🌐 **Live Website**: [https://abhaybarai05.github.io/Kalakart](https://abhaybarai05.github.io/Kalakart)
+- 🌐 **Live Website**: [https://abhaybarai05.github.io/Kalakart]( https://abhaybarai05.github.io/Kalakart/)
 - 💻 **GitHub Repository**: [https://github.com/abhaybarai05/Kalakart](https://github.com/abhaybarai05/Kalakart)
 - 🐛 **Report Issues**: [GitHub Issues](https://github.com/abhaybarai05/Kalakart/issues)
 - 📧 **Contact**: Via GitHub profile
