@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KalaKart - Authentic Indian Handicrafts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --terracotta: #C85C3C;
+            --deep-earth: #8B4513;
+            --warm-sand: #D4A574;
+            --clay: #9D6B53;
+            --burnt-sienna: #A0522D;
+            --cream: #F5EBE0;
+            --charcoal: #2C1810;
+            --sage: #87946B;
+            --ochre: #CC7722;
+            --gold: #DAA520;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #EBD9C5 100%);
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--deep-earth), var(--burnt-sienna));
+            padding: 0;
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: var(--charcoal);
+            padding: 10px 0;
+            text-align: center;
+            color: var(--warm-sand);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .header-main {
+            display: flex;
+            align-items: center;
+            padding: 18px 40px;
+            gap: 30px;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--cream);
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .search-container {
+            flex: 1;
+            display: flex;
+            max-width: 650px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 14px 22px;
+            border: 3px solid var(--ochre);
+            border-right: none;
+            border-radius: 30px 0 0 30px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.05rem;
+            background: white;
+            outline: none;
+        }
+
+        .search-btn {
+            padding: 14px 32px;
+            background: var(--ochre);
+            border: 3px solid var(--ochre);
+            border-radius: 0 30px 30px 0;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+        }
+
+        .search-btn:hover {
+            background: var(--terracotta);
+            border-color: var(--terracotta);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-btn {
+            background: transparent;
+            border: 2px solid var(--cream);
+            color: var(--cream);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .header-btn:hover {
+            background: var(--cream);
+            color: var(--deep-earth);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--terracotta);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(139, 69, 19, 0.95);
+            padding: 16px 40px;
+        }
+
+        .nav-categories {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            padding: 6px 0;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            color: var(--ochre);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(44, 24, 16, 0.5), rgba(139, 69, 19, 0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%238B4513" width="1200" height="400"/></svg>');
+            padding: 90px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            color: var(--cream);
+            margin-bottom: 22px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--warm-sand);
+            margin-bottom: 35px;
+        }
+
+        .hero-btn {
+            background: var(--terracotta);
+            color: white;
+            padding: 16px 45px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            cursor: pointer;
+        }
+
+        .hero-btn:hover {
+            background: var(--ochre);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 45px 25px;
+        }
+
+        /* Filters */
+        .filters {
+            background: white;
+            padding: 28px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 20px rgba(139, 69, 19, 0.12);
+        }
+
+        .filters h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-earth);
+            margin-bottom: 22px;
+            font-size: 1.35rem;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 11px 20px;
+            border: 2px solid var(--clay);
+            border-radius: 25px;
+            font-family: 'Crimson Text', serif;
+            font-size: 1rem;
+            background: var(--cream);
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        .filter-clear-btn {
+            padding: 11px 24px;
+            background: var(--clay);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+        }
+
+        /* Products */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .products-header h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-earth);
+            font-size: 2.1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 32px;
+            margin-bottom: 45px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 25px rgba(139, 69, 19, 0.15);
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(200, 92, 60, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--terracotta);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+        }
+
+        .product-rating {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .stars {
+            color: var(--gold);
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-category {
+            color: var(--clay);
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+            min-height: 55px;
+        }
+
+        .product-artisan {
+            color: var(--sage);
+            font-size: 0.92rem;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .product-price {
+            font-size: 1.6rem;
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .btn-add-cart {
+            width: 100%;
+            background: var(--deep-earth);
+            color: white;
+            padding: 13px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+        }
+
+        .btn-add-cart:hover {
+            background: var(--terracotta);
+        }
+
+        /* Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            right: -450px;
+            top: 0;
+            width: 450px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.4);
+            transition: right 0.4s ease;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            background: var(--deep-earth);
+            color: white;
+            padding: 28px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-header h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+        }
+
+        .cart-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2.2rem;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            color: var(--clay);
+            padding: 60px 20px;
+            font-style: italic;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 18px;
+            padding: 18px;
+            border-bottom: 2px solid var(--cream);
+        }
+
+        .cart-item-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .cart-item-price {
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .qty-btn {
+            background: var(--clay);
+            color: white;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .qty-btn:hover {
+            background: var(--terracotta);
+        }
+
+        .cart-footer {
+            background: var(--cream);
+            padding: 28px;
+            border-top: 3px solid var(--warm-sand);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            background: var(--terracotta);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            cursor: pointer;
+        }
+
+        .btn-checkout:hover {
+            background: var(--ochre);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 24, 16, 0.75);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--charcoal), var(--deep-earth));
+            color: var(--cream);
+            padding: 55px 40px 25px;
+            margin-top: 70px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 45px;
+            max-width: 1400px;
+            margin: 0 auto 45px;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.35rem;
+            margin-bottom: 22px;
+            color: var(--ochre);
+        }
+
+        .footer-section p {
+            color: var(--warm-sand);
+            line-height: 2;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 35px;
+            border-top: 1px solid rgba(212, 165, 116, 0.3);
+            color: var(--warm-sand);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 15px;
+        }
+
+        .no-results h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--deep-earth);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .search-container {
+                width: 100%;
+                max-width: 100%;
+            }
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            .cart-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <header>
+        <div class="header-top">
+            🪷 Supporting 10,000+ Local Artisans Across India | Free Shipping on Orders Above ₹999 🪷
+        </div>
+        <div class="header-main">
+            <div class="logo">KalaKart</div>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for handicrafts, pottery, textiles...">
+                <button class="search-btn" onclick="performSearch()">🔍 Search</button>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn">👤 Account</button>
+                <button class="header-btn" id="cartBtn">
+                    🛒 Cart
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+        <nav>
+            <div class="nav-categories">
+                <a class="nav-item" data-category="all">All Crafts</a>
+                <a class="nav-item" data-category="pottery">Pottery & Ceramics</a>
+                <a class="nav-item" data-category="textile">Textiles</a>
+                <a class="nav-item" data-category="woodwork">Wood Carving</a>
+                <a class="nav-item" data-category="metalwork">Metalwork</a>
+                <a class="nav-item" data-category="painting">Paintings</a>
+                <a class="nav-item" data-category="jewelry">Jewelry</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Celebrate Indian Craftsmanship</h1>
+        <p>Authentic handicrafts, connecting artisan hearts to your home</p>
+        <button class="hero-btn" onclick="document.querySelector('.products-header').scrollIntoView({behavior: 'smooth'})">Explore Collections</button>
+    </div>
+
+    <div class="container">
+        <div class="filters">
+            <h3>🎨 Filter Your Search</h3>
+            <div class="filter-group">
+                <select class="filter-select" id="categoryFilter" onchange="applyFilters()">
+                    <option value="all">All Categories</option>
+                    <option value="pottery">Pottery & Ceramics</option>
+                    <option value="textile">Textiles</option>
+                    <option value="woodwork">Wood Carving</option>
+                    <option value="metalwork">Metalwork</option>
+                    <option value="painting">Paintings</option>
+                    <option value="jewelry">Jewelry</option>
+                </select>
+                
+                <select class="filter-select" id="priceFilter" onchange="applyFilters()">
+                    <option value="all">All Prices</option>
+                    <option value="0-1000">Under ₹1000</option>
+                    <option value="1000-2500">₹1000 - ₹2500</option>
+                    <option value="2500-5000">₹2500 - ₹5000</option>
+                    <option value="5000-10000">Above ₹5000</option>
+                </select>
+                
+                <select class="filter-select" id="sortBy" onchange="sortProducts()">
+                    <option value="relevance">Sort: Relevance</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Customer Rating</option>
+                </select>
+                
+                <button class="filter-clear-btn" onclick="clearFilters()">Clear All</button>
+            </div>
+        </div>
+
+        <div class="products-header">
+            <h2>Featured Handicrafts <span id="productCount" style="color: var(--clay); font-size: 1rem; font-weight: normal;">(30 items)</span></h2>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <h2>No products found</h2>
+            <p style="color: var(--clay); margin-bottom: 25px;">Try adjusting your filters or search query</p>
+            <button class="hero-btn" onclick="clearFilters()">Clear Filters</button>
+        </div>
+    </div>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>🛒 Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty. Start adding beautiful handicrafts!</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About KalaKart</h4>
+                <p>We connect traditional Indian artisans with global customers, preserving cultural heritage while empowering local communities.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Service</h4>
+                <p>Contact Us • Shipping • Returns • FAQs</p>
+            </div>
+            <div class="footer-section">
+                <h4>Artisan Support</h4>
+                <p>Become a Partner • Artisan Stories • Quality Standards</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 KalaKart. Celebrating Indian Heritage, One Craft at a Time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Database
+        const products = [
+            {id: 1, name: "Handcrafted Blue Pottery Vase", category: "pottery", artisan: "Rajesh Kumar, Jaipur", price: 1850, rating: 4.8, image: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 2, name: "Madhubani Canvas Painting", category: "painting", artisan: "Sunita Devi, Madhubani", price: 3200, rating: 4.9, image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 3, name: "Kashmiri Pashmina Shawl", category: "textile", artisan: "Amir Ali, Srinagar", price: 6500, rating: 5.0, image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 4, name: "Sandalwood Carved Elephant", category: "woodwork", artisan: "Ramesh Sharma, Mysuru", price: 2400, rating: 4.7, image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=500&h=500&fit=crop", badge: "Bestseller"},
+            {id: 5, name: "Brass Diya Set (5 pieces)", category: "metalwork", artisan: "Lakshmi Bai, Chennai", price: 1250, rating: 4.6, image: "https://images.unsplash.com/photo-1609151162377-794faf68b02f?w=500&h=500&fit=crop", badge: "Festival"},
+            {id: 6, name: "Block Print Cotton Bedsheet", category: "textile", artisan: "Mohan Singh, Bagru", price: 1890, rating: 4.5, image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500&h=500&fit=crop", badge: "New"},
+            {id: 7, name: "Terracotta Wall Hanging", category: "pottery", artisan: "Dipak Das, Kolkata", price: 950, rating: 4.4, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 8, name: "Warli Painting on Canvas", category: "painting", artisan: "Meena Patel, Dahanu", price: 2800, rating: 4.8, image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 9, name: "Kanchipuram Silk Saree", category: "textile", artisan: "Saraswati Textiles, Kanchipuram", price: 8900, rating: 5.0, image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 10, name: "Wooden Jali Work Mirror Frame", category: "woodwork", artisan: "Anil Joshi, Jaipur", price: 3200, rating: 4.7, image: "https://images.unsplash.com/photo-1618220179428-22790b461013?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 11, name: "Copper Engraved Bowl Set", category: "metalwork", artisan: "Krishna Metals, Thrissur", price: 2100, rating: 4.6, image: "https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=500&h=500&fit=crop", badge: "New"},
+            {id: 12, name: "Rajasthani Bandhani Dupatta", category: "textile", artisan: "Geeta Devi, Jodhpur", price: 1650, rating: 4.5, image: "https://images.unsplash.com/photo-1596003906949-67221c37965c?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 13, name: "Tanjore Painting - Krishna", category: "painting", artisan: "Venkatesh Arts, Thanjavur", price: 4500, rating: 4.9, image: "https://images.unsplash.com/photo-1579762593131-b69705e38416?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 14, name: "Ceramic Coffee Mug Set", category: "pottery", artisan: "Pottery Studio, Kutch", price: 890, rating: 4.3, image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=500&h=500&fit=crop", badge: "Bestseller"},
+            {id: 15, name: "Bamboo Woven Basket", category: "woodwork", artisan: "Tribal Crafts, Wayanad", price: 750, rating: 4.4, image: "https://images.unsplash.com/photo-1573858245668-bc8d4337d65a?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 16, name: "Silver Jhumka Earrings", category: "jewelry", artisan: "Silversmith Creations, Jaipur", price: 1950, rating: 4.8, image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&h=500&fit=crop", badge: "New"},
+            {id: 17, name: "Ikat Silk Cushion Covers", category: "textile", artisan: "Weaver's Guild, Patan", price: 1200, rating: 4.6, image: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 18, name: "Gond Art Tribal Painting", category: "painting", artisan: "Tribal Art Collective", price: 2500, rating: 4.7, image: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 19, name: "Clay Decorative Diyas (Set of 12)", category: "pottery", artisan: "Potter's Collective, Patna", price: 450, rating: 4.5, image: "https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?w=500&h=500&fit=crop", badge: "Festival"},
+            {id: 20, name: "Rosewood Carved Jewelry Box", category: "woodwork", artisan: "Woodcraft Artisans, Srinagar", price: 2800, rating: 4.9, image: "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 21, name: "Dokra Brass Tribal Figurine", category: "metalwork", artisan: "Tribal Metal Arts, Bankura", price: 1650, rating: 4.7, image: "https://images.unsplash.com/photo-1610452990943-e481c5c88aaf?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 22, name: "Phulkari Embroidered Stole", category: "textile", artisan: "Embroidery House, Amritsar", price: 2100, rating: 4.8, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 23, name: "Pattachitra Scroll Painting", category: "painting", artisan: "Chitrakar Community, Odisha", price: 3800, rating: 4.9, image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 24, name: "Terracotta Garden Planters Set", category: "pottery", artisan: "Clay Creations, Pondicherry", price: 1100, rating: 4.5, image: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=500&h=500&fit=crop", badge: "Bestseller"},
+            {id: 25, name: "Sheesham Wood Dining Coasters", category: "woodwork", artisan: "Wood Workshop, Jodhpur", price: 650, rating: 4.4, image: "https://images.unsplash.com/photo-1565794582177-ed902f70c23c?w=500&h=500&fit=crop", badge: "New"},
+            {id: 26, name: "Temple Brass Bell (Ghanti)", category: "metalwork", artisan: "Bell Makers Guild, Thanjavur", price: 950, rating: 4.6, image: "https://images.unsplash.com/photo-1589395937772-54e9e1bc0c78?w=500&h=500&fit=crop", badge: "Traditional"},
+            {id: 27, name: "Chanderi Silk Hand Block Print Saree", category: "textile", artisan: "Heritage Weaves, Chanderi", price: 4500, rating: 5.0, image: "https://images.unsplash.com/photo-1583391733981-5ead1d413064?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 28, name: "Kerala Mural Wall Art", category: "painting", artisan: "Mural Masters, Guruvayur", price: 5200, rating: 4.9, image: "https://images.unsplash.com/photo-1580047164958-e68e8c41d516?w=500&h=500&fit=crop", badge: "Premium"},
+            {id: 29, name: "Blue Pottery Decorative Plate", category: "pottery", artisan: "Pottery Arts, Jaipur", price: 1350, rating: 4.7, image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=500&h=500&fit=crop", badge: "Handmade"},
+            {id: 30, name: "Sandalwood Prayer Beads Mala", category: "jewelry", artisan: "Sacred Crafts, Mysuru", price: 850, rating: 4.8, image: "https://images.unsplash.com/photo-1611042553365-9b101441f135?w=500&h=500&fit=crop", badge: "Bestseller"}
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('kalakart_cart')) || [];
+        let filteredProducts = [...products];
+
+        // Initialize
+        renderProducts(products);
+        updateCartUI();
+        setupEvents();
+
+        function setupEvents() {
+            document.getElementById('cartBtn').addEventListener('click', () => {
+                document.getElementById('cartSidebar').classList.add('active');
+                document.getElementById('overlay').classList.add('active');
+            });
+            
+            document.getElementById('cartClose').addEventListener('click', closeCart);
+            document.getElementById('overlay').addEventListener('click', closeCart);
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    document.getElementById('categoryFilter').value = category;
+                    applyFilters();
+                });
+            });
+            
+            document.getElementById('searchInput').addEventListener('input', performSearch);
+        }
+
+        function renderProducts(prods) {
+            const grid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+            const count = document.getElementById('productCount');
+            
+            if (prods.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                count.textContent = '(0 items)';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            count.textContent = `(${prods.length} items)`;
+            
+            grid.innerHTML = prods.map(p => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${p.image}" alt="${p.name}">
+                        <span class="product-badge">${p.badge}</span>
+                        <div class="product-rating">
+                            <span class="stars">${'★'.repeat(Math.floor(p.rating))}</span>
+                            <span>${p.rating}</span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${getCategoryName(p.category)}</div>
+                        <div class="product-name">${p.name}</div>
+                        <div class="product-artisan">By ${p.artisan}</div>
+                        <div class="product-price">₹${p.price.toLocaleString('en-IN')}</div>
+                        <button class="btn-add-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getCategoryName(cat) {
+            const names = {pottery: 'Pottery & Ceramics', textile: 'Textiles', woodwork: 'Wood Carving', metalwork: 'Metalwork', painting: 'Paintings', jewelry: 'Jewelry'};
+            return names[cat] || cat;
+        }
+
+        function performSearch() {
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!term) {
+                applyFilters();
+                return;
+            }
+            filteredProducts = products.filter(p => 
+                p.name.toLowerCase().includes(term) || 
+                p.category.toLowerCase().includes(term) || 
+                p.artisan.toLowerCase().includes(term)
+            );
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const category = document.getElementById('categoryFilter').value;
+            const price = document.getElementById('priceFilter').value;
+            const term = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            let result = term ? 
+                products.filter(p => p.name.toLowerCase().includes(term) || p.category.toLowerCase().includes(term) || p.artisan.toLowerCase().includes(term)) : 
+                [...products];
+            
+            if (category !== 'all') result = result.filter(p => p.category === category);
+            
+            if (price !== 'all') {
+                const [min, max] = price.split('-').map(Number);
+                result = max ? result.filter(p => p.price >= min && p.price <= max) : result.filter(p => p.price >= min);
+            }
+            
+            filteredProducts = result;
+            renderProducts(filteredProducts);
+        }
+
+        function sortProducts() {
+            const sort = document.getElementById('sortBy').value;
+            let sorted = [...filteredProducts];
+            
+            if (sort === 'price-low') sorted.sort((a, b) => a.price - b.price);
+            else if (sort === 'price-high') sorted.sort((a, b) => b.price - a.price);
+            else if (sort === 'rating') sorted.sort((a, b) => b.rating - a.rating);
+            
+            filteredProducts = sorted;
+            renderProducts(filteredProducts);
+        }
+
+        function clearFilters() {
+            document.getElementById('categoryFilter').value = 'all';
+            document.getElementById('priceFilter').value = 'all';
+            document.getElementById('sortBy').value = 'relevance';
+            document.getElementById('searchInput').value = '';
+            filteredProducts = [...products];
+            renderProducts(products);
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            
+            if (existing) {
+                existing.quantity++;
+            } else {
+                cart.push({...product, quantity: 1});
+            }
+            
+            localStorage.setItem('kalakart_cart', JSON.stringify(cart));
+            updateCartUI();
+            document.getElementById('cartSidebar').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function updateQuantity(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                localStorage.setItem('kalakart_cart', JSON.stringify(cart));
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const count = document.getElementById('cartCount');
+            const items = document.getElementById('cartItems');
+            const total = document.getElementById('cartTotal');
+            
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            count.textContent = totalItems;
+            total.textContent = `₹${totalPrice.toLocaleString('en-IN')}`;
+            
+            if (cart.length === 0) {
+                items.innerHTML = '<p class="empty-cart">Your cart is empty. Start adding beautiful handicrafts!</p>';
+            } else {
+                items.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">₹${item.price.toLocaleString('en-IN')}</div>
+                            <div class="cart-item-quantity">
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="qty-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            alert(`Thank you for your order!\n\nTotal: ₹${total.toLocaleString('en-IN')}\n\nYou will be redirected to checkout...`);
+        }
+    </script>
+</body>
+</html>
